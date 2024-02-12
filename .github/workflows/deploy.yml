@@ -15,7 +15,7 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: 22
-        script: whoami
+        script: ls
 
     - name: rsync deployments
       uses: burnett01/rsync-deployments@6.0.0
