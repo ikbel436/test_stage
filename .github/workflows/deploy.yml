@@ -11,23 +11,12 @@ jobs:
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host: ec2-15-222-234-51.ca-central-1.compute.amazonaws.com
+        host: 15.222.234.51
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port:   22
         script: whoami
         debug: true # Enable debug output
-
-    - name: Fetch GitHub Actions IP ranges
-      id: github-ips
-      run: |
-        echo "::set-output name=ips::$(curl -s https://api.github.com/meta/actions)"
-
-    - name: Whitelist GitHub Actions IPs on your server
-      run: |
-        # Replace the following command with the appropriate command for your server to whitelist IPs
-        echo "${{ steps.github-ips.outputs.ips }}" | while read ip; do sudo ufw allow from $ip to any port  22; done
-
 
 
     - name: rsync deployments
