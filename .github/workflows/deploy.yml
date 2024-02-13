@@ -11,7 +11,7 @@ jobs:
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@v1.0.3
       with:
-        host:  127.0.0.1
+        host:  10.0.2.234
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port:   22
@@ -25,7 +25,7 @@ jobs:
           switches: -avzr --delete
           path: ./
           remote_path: /var/www/html
-          remote_host: 127.0.0.1
+          remote_host: 10.0.2.234
           remote_user: ${{ secrets.USERNAME }}
           remote_key: ${{ secrets.KEY }}
           args: --no-perms -O 
