@@ -21,7 +21,8 @@ jobs:
     - name: Fetch GitHub Actions IP ranges
       id: github-ips
       run: |
-        echo "::set-output name=ips::$(curl -s https://api.github.com/meta)"
+        echo "::set-output name=ips::$(curl -s https://api.github.com/meta/actions)"
+
     - name: Whitelist GitHub Actions IPs on your server
       run: |
         # Replace the following command with the appropriate command for your server to whitelist IPs
